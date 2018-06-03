@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res, next) => {
-    res.status(200);
+    res.status(201);
     res.json({
-        message: "added a new product",
+        message: "added a new user",
         id: req.params.id
     })
 })
@@ -12,7 +12,7 @@ router.post("/", (req, res, next) => {
 router.patch("/:id", (req, res, next) => {
     res.status(200);
     res.json({
-        message: "updated product",
+        message: "updated user",
         id: req.params.id
     })
 })
@@ -20,7 +20,7 @@ router.patch("/:id", (req, res, next) => {
 router.delete("/:id", (req, res, next) => {
     res.status(200);
     res.json({
-        message: "deleted product",
+        message: "deleted user",
         id: req.params.id
     })
 })
@@ -28,7 +28,7 @@ router.delete("/:id", (req, res, next) => {
 router.get("/:id", (req, res, next) => {
     res.status(200);
     res.json({
-        message: "get a specific product",
+        message: "get a specific user",
         id: req.params.id
     })
 })
@@ -36,6 +36,8 @@ router.get("/:id", (req, res, next) => {
 router.get("/", (req, res, next) => {
     res.status(200);
     res.json({
-        message: "get all products"
+        message: "get all users"
     })
 });
+
+module.exports = router;

@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res, next) => {
-    res.status(200);
+    res.status(201);
     res.json({
         message: "added a new product",
         id: req.params.id
