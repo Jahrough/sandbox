@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express();
+const routes = require("./routes/routeFactory.js");
 
-const productRoutes = require("./api/routes/products");
-const usersRoutes = require("./api/routes/users");
-
-app.use('/products', productRoutes);
-app.use('/users', usersRoutes);
+app.use('/products', routes.products);
+app.use('/users', routes.users);
 
 module.exports = app;
