@@ -2,11 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 
  module.exports = {
-     entry: './src/components/app/app.js',
+     entry: [
+         'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+         './src/components/app/app.js'
+    ],
      mode: 'development',
+     context: __dirname,
      devtool: 'source-map',
      output: {
          path: path.resolve(__dirname, 'build'),
+         publicPath: '/',
          filename: 'main.bundle.js'
      },
      module: {
@@ -32,7 +37,10 @@ const webpack = require('webpack');
           }
         ]
       },
-     stats: {
-         colors: true
-     }
+      plugins: [
+        new webpack.HotModuleReplacementPlugin()
+      ],
+      stats: {
+        colors: true
+      }
  };
