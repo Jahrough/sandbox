@@ -1,11 +1,3 @@
 {
-    "presets": ["es2015", "react"],
-    "env": {
-      "development": {
-        "plugins": []
-      },
-      "production": {
-        "plugins": []
-      }
-    }
-  }
+    "presets": ["env"]
+}
