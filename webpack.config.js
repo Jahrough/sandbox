@@ -1,5 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const dist = path.resolve(__dirname, 'build');
 
 module.exports = {
 	entry: [
@@ -10,7 +14,7 @@ module.exports = {
 	context: __dirname,
 	devtool: 'source-map',
 	output: {
-		path: path.resolve(__dirname, 'build'),
+		path: dist,
 		publicPath: '/',
 		filename: 'main.bundle.js'
 	},
@@ -27,13 +31,25 @@ module.exports = {
 				loader: 'eslint-loader'
 			},
 			{
-				test: /\.scss$/,
+				test: /\.(scss|sass)$/,
 				exclude: /node_modules/,
-				use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
 			}
 		]
 	},
-	plugins: [ new webpack.HotModuleReplacementPlugin() ],
+	plugins: [ 
+		new webpack.HotModuleReplacementPlugin(),
+		new CleanWebpackPlugin([dist]),
+		new HtmlWebpackPlugin({
+			inject: false,
+			hash: true,
+			template: './src/index.html',
+			filename: 'index.html'
+		  })
+	],
 	stats: {
 		colors: true
 	}

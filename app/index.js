@@ -1,9 +1,10 @@
-const express = require('express');
+import express from 'express';
+import bodyParser from 'body-parser';
+import morgan from 'morgan';
+import path from 'path';
+import routes from './routes/routeFactory.js';
+
 const app = express();
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const path = require('path');
-const routes = require('./routes/routeFactory.js');
 
 (function() {
 
@@ -32,7 +33,7 @@ app.use(express.static(path.join(__dirname)));
 app.use(morgan('dev'));
 
 // Routes which handle requests
-app.use('/products', routes.products);
-app.use('/users', routes.users);
+app.use('/service', routes.service);
+app.use('/user', routes.user);
 
 module.exports = app;
