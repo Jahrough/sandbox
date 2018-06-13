@@ -11,6 +11,3 @@ const routeFactory = function() {
 };
 
 module.exports = new routeFactory;
-
-
-
