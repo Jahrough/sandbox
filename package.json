@@ -42,23 +42,23 @@
     "sass-loader": "^7.0.2",
     "sinon": "^5.0.7",
     "style-loader": "^0.21.0",
-    "webpack": "^4.10.2",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.12.0",
     "webpack-cli": "^3.0.1",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-hot-middleware": "^2.22.2"
   },
   "scripts": {
     "start": "nodemon server.js --exec babel-node",
+    "clean": "rimraf dist",
     "lint": "echo \"Error: no test specified\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack",
-    "build": "webpack"
+    "build": "webpack",
+    "deploy": "webpack"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jahrough/sandbox.git"
-  },
-  "author": "",
+  "repository": "git+https://github.com/Jahrough/sandbox.git",
+  "author": "jlopez <Jahrough.Lopez@turner.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Jahrough/sandbox/issues"
