@@ -54,7 +54,7 @@
     "lint": "echo \"Error: no test specified\" && exit 1",
     "test": "echo \"Error: no test specified\" && exit 1",
     "bundle": "webpack",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack --config webpack/prod.config.js",
     "deploy": "webpack"
   },
   "repository": "git+https://github.com/Jahrough/sandbox.git",
